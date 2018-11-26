@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1543020042 source:/home/damian/Escritorio/Parcial/Controller.c
+1543105525 source:/home/damian/Escritorio/parciales_lab1/ParcialDesario2/Controller.c
 	<stdio.h>
 	<stdlib.h>
 	"LinkedList.h"
@@ -7,43 +7,36 @@
 	"venta.h"
 	<string.h>
 
-1543012172 /home/damian/Escritorio/Parcial/LinkedList.h
+1543105525 /home/damian/Escritorio/parciales_lab1/ParcialDesario2/LinkedList.h
 
-1543020042 /home/damian/Escritorio/Parcial/parser.h
+1543105525 /home/damian/Escritorio/parciales_lab1/ParcialDesario2/parser.h
 
-1543014341 /home/damian/Escritorio/Parcial/venta.h
+1543105525 /home/damian/Escritorio/parciales_lab1/ParcialDesario2/venta.h
 
-1543020042 source:/home/damian/Escritorio/Parcial/informes.c
-	<stdio_ext.h>
+1543105525 source:/home/damian/Escritorio/parciales_lab1/ParcialDesario2/LinkedList.c
+	<stdio.h>
 	<stdlib.h>
 	<string.h>
-	"venta.h"
-	"informes.h"
 	"LinkedList.h"
+
+1543201469 source:/home/damian/Escritorio/parciales_lab1/ParcialDesario2/main.c
+	<stdio.h>
+	<stdlib.h>
 	"Controller.h"
+	"LinkedList.h"
+	"venta.h"
 
-1543018382 /home/damian/Escritorio/Parcial/informes.h
-
-1543015856 source:/home/damian/Escritorio/Parcial/LinkedList.c
-	<stdio.h>
-	<stdlib.h>
-	<string.h>
+1543105525 /home/damian/Escritorio/parciales_lab1/ParcialDesario2/Controller.h
 	"LinkedList.h"
 
-1543018706 source:/home/damian/Escritorio/Parcial/parser.c
+1543105525 source:/home/damian/Escritorio/parciales_lab1/ParcialDesario2/parser.c
 	<stdio.h>
 	<stdlib.h>
 	"LinkedList.h"
 	"venta.h"
 	<string.h>
 
-1543015861 source:/home/damian/Escritorio/Parcial/validator.c
-	<stdio.h>
-	<stdlib.h>
-	"string.h"
-	"ctype.h"
-
-1543014341 source:/home/damian/Escritorio/Parcial/venta.c
+1543201370 source:/home/damian/Escritorio/parciales_lab1/ParcialDesario2/venta.c
 	<stdio.h>
 	<stdlib.h>
 	"LinkedList.h"
@@ -51,132 +44,11 @@
 	<string.h>
 	"validator.h"
 
-1543003720 /home/damian/Escritorio/Parcial/validator.h
+1543201370 /home/damian/Escritorio/parciales_lab1/ParcialDesario2/validator.h
 
-1543017995 source:/home/damian/Escritorio/Parcial/main.c
-	<stdio.h>
-	<stdlib.h>
-	"Controller.h"
-	"informes.h"
-	"LinkedList.h"
-	"venta.h"
-
-1543020012 /home/damian/Escritorio/Parcial/Controller.h
-
-1543022035 source:/home/damian/Escritorio/Parcial (copia 1)/Controller.c
-	<stdio.h>
-	<stdlib.h>
-	"LinkedList.h"
-	"parser.h"
-	"venta.h"
-	<string.h>
-
-1543022491 /home/damian/Escritorio/Parcial (copia 1)/LinkedList.h
-
-1543020404 /home/damian/Escritorio/Parcial (copia 1)/parser.h
-
-1543025996 /home/damian/Escritorio/Parcial (copia 1)/venta.h
-
-1543023036 source:/home/damian/Escritorio/Parcial (copia 1)/LinkedList.c
+1543201377 source:/home/damian/Escritorio/parciales_lab1/ParcialDesario2/validator.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
-	"LinkedList.h"
-
-1543020389 source:/home/damian/Escritorio/Parcial (copia 1)/informes.c
-	<stdio_ext.h>
-	<stdlib.h>
-	<string.h>
-	"venta.h"
-	"informes.h"
-	"LinkedList.h"
-	"Controller.h"
-
-1543018382 /home/damian/Escritorio/Parcial (copia 1)/informes.h
-
-1543021198 /home/damian/Escritorio/Parcial (copia 1)/Controller.h
-	"LinkedList.h"
-
-1543026020 source:/home/damian/Escritorio/Parcial (copia 1)/main.c
-	<stdio.h>
-	<stdlib.h>
-	"Controller.h"
-	"LinkedList.h"
-	"venta.h"
-
-1543022036 source:/home/damian/Escritorio/Parcial (copia 1)/parser.c
-	<stdio.h>
-	<stdlib.h>
-	"LinkedList.h"
-	"venta.h"
-	<string.h>
-
-1543015861 source:/home/damian/Escritorio/Parcial (copia 1)/validator.c
-	<stdio.h>
-	<stdlib.h>
-	"string.h"
-	"ctype.h"
-
-1543025996 source:/home/damian/Escritorio/Parcial (copia 1)/venta.c
-	<stdio.h>
-	<stdlib.h>
-	"LinkedList.h"
-	"venta.h"
-	<string.h>
-	"validator.h"
-
-1543003720 /home/damian/Escritorio/Parcial (copia 1)/validator.h
-
-1543022035 source:/home/damian/Escritorio/ESTE ES EL POSTA/Controller.c
-	<stdio.h>
-	<stdlib.h>
-	"LinkedList.h"
-	"parser.h"
-	"venta.h"
-	<string.h>
-
-1543022491 /home/damian/Escritorio/ESTE ES EL POSTA/LinkedList.h
-
-1543020404 /home/damian/Escritorio/ESTE ES EL POSTA/parser.h
-
-1543025996 /home/damian/Escritorio/ESTE ES EL POSTA/venta.h
-
-1543030029 source:/home/damian/Escritorio/ESTE ES EL POSTA/LinkedList.c
-	<stdio.h>
-	<stdlib.h>
-	<string.h>
-	"LinkedList.h"
-
-1543026020 source:/home/damian/Escritorio/ESTE ES EL POSTA/main.c
-	<stdio.h>
-	<stdlib.h>
-	"Controller.h"
-	"LinkedList.h"
-	"venta.h"
-
-1543021198 /home/damian/Escritorio/ESTE ES EL POSTA/Controller.h
-	"LinkedList.h"
-
-1543031922 source:/home/damian/Escritorio/ESTE ES EL POSTA/parser.c
-	<stdio.h>
-	<stdlib.h>
-	"LinkedList.h"
-	"venta.h"
-	<string.h>
-
-1543033545 source:/home/damian/Escritorio/ESTE ES EL POSTA/validator.c
-	<stdio.h>
-	<stdlib.h>
-	"string.h"
-	"ctype.h"
-
-1543085139 source:/home/damian/Escritorio/ESTE ES EL POSTA/venta.c
-	<stdio.h>
-	<stdlib.h>
-	"LinkedList.h"
-	"venta.h"
-	<string.h>
-	"validator.h"
-
-1543030862 /home/damian/Escritorio/ESTE ES EL POSTA/validator.h
+	<ctype.h>
 

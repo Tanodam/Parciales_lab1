@@ -1,110 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "string.h"
-#include "ctype.h"
+#include <string.h>
+#include <ctype.h>
 
-
-/**
-*\brief [Funcion interna de GetMail] Valida que el usuario haya ingresado un mail correcto
-*\param pArray Puntero a la direccion de memoria donde esta almacenada el string a validar
-*\param limiteArray tamaño del array
-*\return Exito=1 y Error=-0
-*/
-int array_StringMailEsValido (char* pArray, int limiteArray)
-{
-    int retorno = 0;
-    int i;
-    int indexArroba = 0, indexPunto = 0;
-    int contadorArroba=0;
-
-    if(pArray!= NULL && limiteArray > 0)
-    {
-        retorno = 1;
-        for (i=0; i<strlen(pArray)-1; i++)
-        {
-///Valida que en ninguna parte del array haya espacios
-            if (pArray[i] == ' ')
-            {
-                retorno = 0;
-                break;
-            }
-///Valida que antes del arroba haya solo letras, numeros, punto(.), guion alto(-) y guion bajo(_)
-            if (indexArroba == 0 && (pArray[i] < 'a' || pArray[i] > 'z') &&
-                    (pArray[i] < '0' || pArray[i] > '9') && (pArray[i] != '.' && pArray[i] == '-' && pArray[i] == '_'))
-            {
-                retorno = 0;
-                break;
-            }
-///Valida que el usuario ingrese el arroba
-            if (pArray[i] == '@')
-            {
-                contadorArroba++;
-                if (indexArroba == 0 && contadorArroba==1) ///Guarda el indice para saber que el usuario esta ingresando el dominio y verifica que no haya mas de un arroba
-                {
-                    indexArroba = i;
-                }
-                else
-                {
-                    retorno = 0;
-                    break;
-                }
-            }
-///Valida que despues del arroba en el primer indice solo haya caracteres alfabeticos
-            if (pArray[i-1] == '@' && (pArray[i] < 'a' || pArray[i] > 'z'))
-            {
-                retorno = 0;
-                break;
-            }
-///Valida que despues del arroba haya almenos un punto
-            if (pArray[i] == '.' && indexArroba != 0)
-            {
-                indexPunto = i;
-            }
-///Valida todo lo que esta entre el arroba y el primer punto
-            if (indexArroba != 0 && indexPunto == 0 && pArray[i] != '@')
-            {
-                if ((pArray[i] < 'a' || pArray[i] > 'z') && (pArray[i] < '0' || pArray[i] > '9'))
-                {
-                    retorno = 0;
-                    break;
-                }
-            }
-///Valida que en el dominio haya solos caracteres alfabeticos
-            if (indexArroba != 0 && indexPunto != 0 && pArray[i] != '.')
-            {
-                if (pArray[i] < 'a' || pArray[i] > 'z')
-                {
-                    retorno = 0;
-                    break;
-                }
-                else
-                {
-                    retorno = 1;
-                }
-            }
-///Valida que en el ultimo indice solo haya caracteres alfabeticos
-            if (i==strlen(pArray)-2 && (pArray[i] < 'a' || pArray[i] > 'z'))
-            {
-                retorno = 0;
-                break;
-            }
-///Valida que se hayan escritos el arroba y el punto del dominio
-            if (indexArroba == 0 || indexPunto == 0)
-            {
-                retorno = 0;
-                break;
-            }
-        }
-    }
-    return retorno;
-}
 /**
 *\brief [Funcion interna de GetStringFloat] Valida que el usuario solo haya ingresado caracteres del 0 al 9
 *\param pArray Puntero a la direccion de memoria donde esta almacenada el string a validar
 *\param limiteArray tamaño del array
 *\return Exito=0 y Error=-1
 */
-int array_StringFloatEsValido (char* pArray, int limiteArray)
+int validator_StringFloatEsValido (char* pArray, int limiteArray)
 {
     int i=0;
     int retorno = 0;
@@ -144,7 +49,7 @@ int array_StringFloatEsValido (char* pArray, int limiteArray)
 *\param limiteArray tamaño del array
 *\return Exito=0 y Error=-1
 */
-int array_StringIntEsValido(char* array, int size)
+int validator_StringIntEsValido(char* array, int size)
 {
     int retorno = 0;
     int i;
@@ -152,7 +57,7 @@ int array_StringIntEsValido(char* array, int size)
     if(array != NULL && size > 0)
     {
         retorno = 1;
-        for(i=0;i < size && array[i] != '\0';i++)
+        for(i=0; i < size && array[i] != '\0'; i++)
         {
             if((array[i] < '0') && (array[i] > '9'))
             {
@@ -169,7 +74,7 @@ int array_StringIntEsValido(char* array, int size)
 *\param limiteArray tamaño del array
 *\return Exito=1 y Error=0
 */
-int array_StringCodigoProductoEsValido (char* pArray, int limiteArray)
+int validator_StringCodigoProductoEsValido (char* pArray, int limiteArray)
 {
     int retorno=-1;
     int i;
@@ -188,7 +93,7 @@ int array_StringCodigoProductoEsValido (char* pArray, int limiteArray)
                 if((pArray[i] < 48 && pArray[i] > 57) || (pArray[i] > 65 && pArray[i] > 90))///Verifica que no haya espacios ni caracteres fuera de rango
                 {
 
-                        retorno = 0;
+                    retorno = 0;
 
                 }
                 break;
@@ -205,7 +110,7 @@ int array_StringCodigoProductoEsValido (char* pArray, int limiteArray)
 * \return En caso de exito retorna 1, si no 0
 *
 */
-int isValidCuilOrCuit(char *pBuffer, int limite)
+int validator_isValidCuilOrCuit(char *pBuffer, int limite)
 {
     int retorno = 0;
     int i;
@@ -231,7 +136,7 @@ int isValidCuilOrCuit(char *pBuffer, int limite)
  * \return 1 si contiene solo ' ' y letras y 0 si no lo es
  *
  */
-int array_StringCharEsValidoDos(char* array,int size)
+int validator_StringCharEsValidoDos(char* array,int size)
 {
     int retorno = 0;
     int i;
@@ -261,17 +166,19 @@ int array_StringCharEsValidoDos(char* array,int size)
 * \return En caso de exito retorna 1, si no 0
 *
 */
-int isValidEntero(char *array, int size)
+int validator_isValidEntero(char* array,int size)
 {
     int retorno = 0;
     int i;
 
-    if(array != NULL && size > 0)
+    if((array != NULL && size > 0 && strlen(array) > 0) &&
+            (array[0] == '-' || array[0] == '+' ||
+             (array[0] > '0' && array[0] <= '9')))//Verifico que el primer digito sea valido
     {
         retorno = 1;
-        for(i=0;i < size && array[i] != '\0';i++)
+        for(i=1; i < size && array[i] != '\0'; i++) //Verifico los digitos restantes
         {
-            if((array[i] < '0') && (array[i] > '9'))
+            if(!(array[i] >= '0' && array[i] <= '9'))//Rango valido de numeros
             {
                 retorno = 0;
                 break;
@@ -280,13 +187,14 @@ int isValidEntero(char *array, int size)
     }
     return retorno;
 }
+
 /**
 *\brief [Funcion interna de GetStringChar] Valida que el usuario solo haya ingresado caracteres de la A a la Z
 *\param pArray Puntero a la direccion de memoria donde esta almacenada el string a validar
 *\param limiteArray tamaño del array
 *\return Exito=1 y Error=0
 */
-int array_StringCharEsValido (char* pArray, int limiteArray)
+int validator_StringCharEsValido (char* pArray, int limiteArray)
 {
     int retorno=-1;
     int i;
@@ -326,25 +234,88 @@ int array_StringCharEsValido (char* pArray, int limiteArray)
     }
     return retorno;
 }
-int isValidFecha(char* pArray, int limiteArray)
+
+int validator_isValidFecha(char* pArray)
 {
     int retorno = -1;
-    char* dia;
-    char* anio;
-    char* mes;
+    char dias[3];
+    char meses[3];
+    char anios[5];
+    int dia;
+    int mes;
+    int anio;
+    static int i = 1;
 
-    if((pArray!= NULL && limiteArray > 0) && (strlen(pArray) > 0))
+    if(sscanf(pArray, "%2s/%2s/%4s", dias, meses, anios) == 3 && pArray != NULL )
     {
-        dia = strtok(pArray,"/");
-        mes = strtok(NULL, "/");
-        anio = strtok(NULL, "\n");
+        i++;
+        mes=atoi(meses);
+        dia=atoi(dias);
+        anio=atoi(anios);
 
-        if(atoi(dia) > 0 && atoi(dia) <= 31)
+        if ( mes >= 1 && mes <= 12 && validator_isValidEntero(dias,3))
         {
-            retorno = 0;
+            switch ( mes )
+            {
+            case  1 :
+            case  3 :
+            case  5 :
+            case  7 :
+            case  8 :
+            case 10 :
+            case 12 :
+                if (dia >= 1 && dia <= 31)
+                {
+                    //printf( "\n   FECHA CORRECTA" );
+                }
+                else
+                {
+                    //printf( "\n   FECHA INCORRECTA" );
+                    retorno = 0;
+                }
+                break;
 
+            case  4 :
+            case  6 :
+            case  9 :
+            case 11 :
+                if (dia >= 1 && dia <= 30)
+                {
+                    //printf( "\n   FECHA CORRECTA" );
+                }
+                else
+                {
+                    //printf( "\n   FECHA INCORRECTA\nNOOOOOOOOO" );
+                    retorno = 0;
+                }
+                break;
+
+            case  2 :
+                if( (anio % 4 == 0 && anio % 100 != 0) || anio % 400 == 0 )
+                {
+                    if ( dia >= 1 && dia <= 29 )
+                    {
+                        //      printf( "\n   FECHA CORRECTA" );
+                    }
+                    else
+                    {
+                        //    printf( "\n   FECHA INCORRECTA" );
+                        retorno = 0;
+                    }
+                }
+                else if ( dia >= 1 && dia <= 28 )
+                {
+                }
+                else
+                {
+                    retorno = 0;
+                }
+            }
         }
-        //printf("%s - %s - %s\n", dia,mes,anio);
+    }
+    else
+    {
+        retorno = 0;
     }
     return retorno;
 }

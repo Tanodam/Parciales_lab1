@@ -40,9 +40,9 @@ Venta* venta_newConParametros(char* codigoProducto,char* fecha,char* precioUnita
 {
     Venta* this;
     this=venta_new();
-    if(array_StringCodigoProductoEsValido(codigoProducto,BUFFER) && array_StringFloatEsValido(precioUnitario,BUFFER) &&
-            array_StringIntEsValido(idVenta,BUFFER) && isValidCuilOrCuit(cuit,15) &&
-            array_StringIntEsValido(cantidad,BUFFER) )
+    if(validator_StringCodigoProductoEsValido(codigoProducto,BUFFER) && validator_StringFloatEsValido(precioUnitario,BUFFER) &&
+            validator_StringIntEsValido(idVenta,BUFFER) && validator_isValidCuilOrCuit(cuit,15) &&
+            validator_StringIntEsValido(cantidad,BUFFER) && validator_isValidFecha(fecha))
     {
         venta_setCodigoProducto(this,codigoProducto);
         venta_setFecha(this,fecha);
@@ -54,7 +54,8 @@ Venta* venta_newConParametros(char* codigoProducto,char* fecha,char* precioUnita
     }
     else
     {
-        //printf("%s - %s - %s - %s\n", codigoProducto,fecha,cuit,precioUnitario);
+        printf("VENTA INCORRECTA\n"
+        "ID\tCod.Producto Fecha\t   Cuit\t\t  Precio   Cantidad\n%s)\t%s - %s -  %s - %s  -  %s\n\n\n", idVenta,codigoProducto,fecha,cuit,precioUnitario,cantidad);
     }
 
     venta_delete(this);

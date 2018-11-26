@@ -4,7 +4,6 @@
 #include "LinkedList.h"
 #include "venta.h"
 
-
 int main()
 {
     LinkedList* listaVentas= ll_newLinkedList();
