@@ -69,7 +69,7 @@ int validator_StringIntEsValido(char* array, int size)
     return retorno;
 }
 /**
-*\brief [Funcion interna de GetStringChar] Valida que el usuario solo haya ingresado caracteres de la A a la Z
+*\brief Funcion que valida un codigo de producto
 *\param pArray Puntero a la direccion de memoria donde esta almacenada el string a validar
 *\param limiteArray tamaño del array
 *\return Exito=1 y Error=0
@@ -168,7 +168,7 @@ int validator_StringCharEsValidoDos(char* array,int size)
 */
 int validator_isValidEntero(char* array,int size)
 {
-    int retorno = 0;
+    int retorno = -1;
     int i;
 
     if((array != NULL && size > 0 && strlen(array) > 0) &&
@@ -189,7 +189,7 @@ int validator_isValidEntero(char* array,int size)
 }
 
 /**
-*\brief [Funcion interna de GetStringChar] Valida que el usuario solo haya ingresado caracteres de la A a la Z
+*\brief Valida que el usuario solo haya ingresado caracteres de la A a la Z
 *\param pArray Puntero a la direccion de memoria donde esta almacenada el string a validar
 *\param limiteArray tamaño del array
 *\return Exito=1 y Error=0
@@ -234,7 +234,13 @@ int validator_StringCharEsValido (char* pArray, int limiteArray)
     }
     return retorno;
 }
-
+/**
+* \brief Funcion que evalua una fecha para saber si es valida o no
+    Se realiza un parseo del string en 3 partes, dia, mes, anios con la funcion sscanf para despues validar luego campo por campo
+* \param pBuffer Es la cadena que evaluamos
+* \return En caso de exito retorna 1, si no 0
+*
+*/
 int validator_isValidFecha(char* pArray)
 {
     int retorno = -1;
@@ -244,16 +250,15 @@ int validator_isValidFecha(char* pArray)
     int dia;
     int mes;
     int anio;
-    static int i = 1;
 
     if(sscanf(pArray, "%2s/%2s/%4s", dias, meses, anios) == 3 && pArray != NULL )
     {
-        i++;
+        retorno = 1;
         mes=atoi(meses);
         dia=atoi(dias);
         anio=atoi(anios);
 
-        if ( mes >= 1 && mes <= 12 && validator_isValidEntero(dias,3))
+        if ( mes >= 1 && mes <= 12 && validator_isValidEntero(meses,3) && validator_isValidEntero(anios,5) && validator_isValidEntero(dias,3))
         {
             switch ( mes )
             {
